@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.etong.information.data.mapper.RepairInfoMapper">
+    <resultMap id="BaseResultMap" type="RepairInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="gh" property="workOrder" jdbcType="VARCHAR"/>
+        <result column="ch" property="plateNum" jdbcType="VARCHAR"/>
+        <result column="cp" property="brandName" jdbcType="VARCHAR"/>
+        <result column="cx" property="carTypeName" jdbcType="VARCHAR"/>
+        <result column="GNAME" property="custName" jdbcType="VARCHAR"/>
+        <result column="lxr" property="lationName" jdbcType="VARCHAR"/>
+        <result column="tel" property="lationTel" jdbcType="VARCHAR"/>
+        <result column="ywlx" property="busitype" jdbcType="VARCHAR"/>
+        <result column="WXLX" property="repairType" jdbcType="VARCHAR"/>
+        <result column="WFY" property="money" jdbcType="DECIMAL"/>
+        <result column="jcdate" property="entryDate" jdbcType="VARCHAR"/>
+        <result column="wgdate" property="finishDate" jdbcType="VARCHAR"/>
+        <result column="jsdate" property="balanceDate" jdbcType="VARCHAR"/>
+        <result column="LS" property="mileage" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="loadLastRepairInfo" parameterType="map" resultMap="BaseResultMap">
+        SELECT top 1 t.gh,t.ch,t.cp ,t.cx,t.GNAME,t.lxr,t.tel, t.ywlx,t.WXLX ,t.WFY,t.jcdate,t.wgdate,t.jsdate,t.LS AS
+        mileage
+        FROM newqpgl.dbo.tbxlrc t
+        <where>
+            <trim prefixOverrides="or">
+                <if test="plateNum!=null">
+                    t.ch LIKE #{plateNum}
+                </if>
+                <if test="lationTel!=null">
+                    OR t.tel LIKE #{lationTel}
+                </if>
+            </trim>
+        </where>
+        ORDER BY t.jcdate DESC
+    </select>
+</mapper>
