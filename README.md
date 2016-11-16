@@ -7,4 +7,4 @@ spring和mybatis整合实例
 该示例中放置了activeMQ测试代码
 
 
-IntelliJ IDEA 使用mybatis-plugin:https://www.oschina.net/p/intellij-mybatis-plugin
+IntelliJ IDEA 使用mybatis-plugin:https://www.oschina.net/p/intellij-mybatis-plugin，目前最新版本的插件是收费版本，破解方法：http://down.51cto.com/data/2116091
