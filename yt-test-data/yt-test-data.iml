@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/spring-config" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/mapper" type="java-resource" />
     </content>
-    <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="dubbo" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="mybatis" level="project" />
